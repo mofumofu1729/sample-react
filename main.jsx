@@ -16,8 +16,12 @@ function App() {
     }
   ];
 
+
+  const addTweet = React.useCallback((tweet) => setTweets((prev) => [tweet, ...prev]), [setTweets]);
+ 
   return (
     <div>
+      <TweetInput addTweet={addTweet}/> 
       <Timeline tweets={tweets}/>
     </div>
   );
